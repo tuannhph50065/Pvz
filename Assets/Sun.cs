@@ -11,9 +11,9 @@ public class Sun : MonoBehaviour
 
     private void Start()
     {
-        transform.position = new Vector3(Random.Range(-4.5f, 8f), 6, 0);
+        transform.position = new Vector3(Random.Range(1.5f, 15f), 12.5f, 0);
 
-        DropToyPos = Random.Range(2.5f, -3.9f);
+        DropToyPos = Random.Range(9f, 1f);
 
         Destroy(gameObject, Random.Range(6, 12));
     }

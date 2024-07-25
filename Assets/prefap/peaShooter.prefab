@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2b825b64e19dcc94c998f10bf76bdc74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,11 +100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1429860580152985574, guid: c21e312d2b37db049a190bbff648c013, type: 3}
   shootOrigin: {fileID: 6641092362460628865}
-  cooldown: 4
-  range: 6
+  cooldown: 2.5
+  range: 10
   ShootMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!1 &8008947851523794512
 GameObject:
   m_ObjectHideFlags: 0
