@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class PlantSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Ui canvas")]
-    [SerializeField] private Canvas canvans; 
+    [SerializeField] private Canvas canvans;
     [SerializeField] private CanvasGroup canvasGroup;
     private Vector3 Pos; // Pos dùng để lưu vị trí kéo thả
 
-    [Header("Object Drag")]        
+    [Header("Object Drag")]
     [SerializeField] private GameObject Plant_Object; // Object để sinh ra khi thả
     [SerializeField] private Image Object_Card;
 

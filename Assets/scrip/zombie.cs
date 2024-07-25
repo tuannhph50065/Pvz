@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class zombie : MonoBehaviour
 {
-    public float speed;
+    public float Speed;
 
-    public int heath;
+    public int Heath;
 
     private void FixedUpdate()
     {
-        transform.position -= new Vector3(speed, 0 ,0);
+        transform.position -= new Vector3(Speed, 0, 0);
     }
+
 }
