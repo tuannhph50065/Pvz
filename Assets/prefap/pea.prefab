@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7011712312002661138}
   - component: {fileID: 1461705687016412555}
   - component: {fileID: 7334841707767971419}
-  - component: {fileID: -1296375009454523570}
   - component: {fileID: 5876461193580912337}
+  - component: {fileID: -545555981066995482}
   m_Layer: 0
   m_Name: pea
   m_TagString: Untagged
@@ -99,35 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aff64723f895ae44b2920572070641c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   damage: 50
-  speed: 0.8
---- !u!50 &-1296375009454523570
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429860580152985574}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  hitEffectPrefab: {fileID: 0}
 --- !u!61 &5876461193580912337
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +147,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0
+--- !u!50 &-545555981066995482
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429860580152985574}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
