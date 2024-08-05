@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9177328233738990448}
   - component: {fileID: 8218051922384623111}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "B\xF3ng \u0111\u1ED5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,9 +99,9 @@ GameObject:
   - component: {fileID: 1711510233729226379}
   - component: {fileID: -3411141799763275966}
   - component: {fileID: 6772767387360510600}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Zombie
-  m_TagString: enemy
+  m_TagString: Zombies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,11 +186,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5494632360f2d21428b873a0059db58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 10
   speed: 0.5
-  health: 100
-  deathEffectPrefab: {fileID: 0}
-  deathSound: {fileID: 8300000, guid: 7e7a5e5a4d1417a44a3c6a5dfe32010a, type: 3}
-  audioSource: {fileID: 0}
+  hitByBullet: {fileID: 8300000, guid: 16cbdf9e974cac14495ca8c6ad297471, type: 3}
+  shootingInterval: 2
 --- !u!61 &-4061879953683893815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!82 &-3411141799763275966
 AudioSource:
   m_ObjectHideFlags: 0

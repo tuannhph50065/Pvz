@@ -6,12 +6,15 @@ TagManager:
   tags:
   - sun
   - target
+  - Zombies
   - enemy
+  - plant
+  - Plant
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - zombie
   - Water
   - UI
   - tile

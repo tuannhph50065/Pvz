@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4321866396618392247}
   - component: {fileID: 8006232255772874522}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: "B\xF3ng \u0110\u1ED5"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1637129939405628687}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pos_shoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,9 +130,9 @@ GameObject:
   - component: {fileID: 5859466217210660002}
   - component: {fileID: -3143955595588328216}
   - component: {fileID: -81899294745981839}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: peaShooter
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -218,13 +218,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bb49d0f5b72eb4aa5ab2b51bee23b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 6
   bulletPrefab: {fileID: 1429860580152985574, guid: c21e312d2b37db049a190bbff648c013, type: 3}
   shootingInterval: 3
   shootingPoint: {fileID: 1637129939405628687}
-  maxDetectionDistance: 15
+  DetectionDistance: 14
   zombieLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 8
+  idleSound: {fileID: 8300000, guid: e56d242c97dd5c24b8561bd13dc2b14d, type: 3}
+  shootSound: {fileID: 0}
 --- !u!61 &-7768902890937279804
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -296,7 +299,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!82 &-3143955595588328216
 AudioSource:
   m_ObjectHideFlags: 0

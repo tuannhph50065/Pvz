@@ -11,6 +11,9 @@ public class GamePlay : MonoBehaviour
     // Biến để lưu trữ số điểm sunScore
     public int sunScore;
 
+    public int deadZombies;
+    public int numberOfZombies;
+
     // Phương thức Awake được gọi khi script này được khởi tạo
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class GamePlay : MonoBehaviour
     // Phương thức Update được gọi một lần mỗi khung hình
     private void Update()
     {
+       
         // Tạo một Raycast từ vị trí của chuột trong thế giới tới điểm không giới hạn (Mathf.Infinity)
         RaycastHit2D touch = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, whatIsMask);
 
@@ -33,6 +37,12 @@ public class GamePlay : MonoBehaviour
                 // Thiết lập biến isTouch của đối tượng bị va chạm thành true
                 touch.collider.gameObject.GetComponent<SunFall>().isTouch = true;
             }
+        }
+
+        if (deadZombies == numberOfZombies)
+        {
+
+            Debug.Log("Win Game!");
         }
     }
 }
