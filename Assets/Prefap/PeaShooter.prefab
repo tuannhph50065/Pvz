@@ -219,14 +219,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 6
-  bulletPrefab: {fileID: 1429860580152985574, guid: c21e312d2b37db049a190bbff648c013, type: 3}
-  shootingInterval: 3
-  shootingPoint: {fileID: 1637129939405628687}
-  DetectionDistance: 14
-  zombieLayer:
+  whatIsMask:
     serializedVersion: 2
     m_Bits: 8
-  idleSound: {fileID: 8300000, guid: e56d242c97dd5c24b8561bd13dc2b14d, type: 3}
+  distanceLimit: 17
+  bullet_prefabs: {fileID: 1429860580152985574, guid: c21e312d2b37db049a190bbff648c013, type: 3}
+  pos_Shoot: {fileID: 1637129939405628687}
+  fireRate: 3
   shootSound: {fileID: 0}
 --- !u!61 &-7768902890937279804
 BoxCollider2D:

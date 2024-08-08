@@ -188,8 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   speed: 0.5
+  Atk: 1
   hitByBullet: {fileID: 8300000, guid: 16cbdf9e974cac14495ca8c6ad297471, type: 3}
-  shootingInterval: 2
+  audioAtk: {fileID: 8300000, guid: 0890cdb1b19a1dd44974bd1d2b526f9e, type: 3}
 --- !u!61 &-4061879953683893815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -272,7 +273,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7e7a5e5a4d1417a44a3c6a5dfe32010a, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

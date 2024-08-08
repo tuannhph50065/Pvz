@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,301 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 405
+        width: 85
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a97a154f291c344dbf7c1e25d3ff086
+      internalID: 2084169307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 405
+        width: 85
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50303aec3295764d8f44aee8a574bef
+      internalID: 2128031505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_2
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 405
+        width: 86
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e953209198fb5a5448a889d5ea2ae771
+      internalID: -515615563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_3
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 323
+        width: 208
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f978a24e463d24f44b6b5493c11e5f22
+      internalID: 404318767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_4
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 412
+        width: 318
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7affb3690de98884b872bab5310247de
+      internalID: -1028327993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 295
+        width: 85
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8843f8957ad310546a5d00b72e6f5672
+      internalID: 1284068227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 189
+        width: 169
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3cc165f9329b7d439939947cfa12378
+      internalID: 1225633872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_7
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 295
+        width: 86
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4db182ab0b238408eaa8cc4f2fd5d5
+      internalID: 141173509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_8
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 196
+        width: 48
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742166b265f6f64449f46ad6a7c85ce0
+      internalID: 241810723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 276
+        width: 128
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe4590782069dc84099c570cdeac785d
+      internalID: -6445964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 167
+        width: 220
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01c2a09ec13c30498946a8fcd1ab580
+      internalID: 1626736923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 163
+        width: 53
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4209b609724a22540b4b0e286ab86598
+      internalID: 723395869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 481
+        width: 289
+        height: 16
+      alignment: 9
+      pivot: {x: 0.46651334, y: 0.47769836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb0b6b377bd1e648959117364543c41
+      internalID: -1333530077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PVZMobile_some_unused_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 186
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d2764bab69b404b88042d928141503
+      internalID: -2095670727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +400,21 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PVZMobile_some_unused_sprites_0: 2084169307
+      PVZMobile_some_unused_sprites_1: 2128031505
+      PVZMobile_some_unused_sprites_10: 1626736923
+      PVZMobile_some_unused_sprites_11: 723395869
+      PVZMobile_some_unused_sprites_12: -1333530077
+      PVZMobile_some_unused_sprites_13: -2095670727
+      PVZMobile_some_unused_sprites_2: -515615563
+      PVZMobile_some_unused_sprites_3: 404318767
+      PVZMobile_some_unused_sprites_4: -1028327993
+      PVZMobile_some_unused_sprites_5: 1284068227
+      PVZMobile_some_unused_sprites_6: 1225633872
+      PVZMobile_some_unused_sprites_7: 141173509
+      PVZMobile_some_unused_sprites_8: 241810723
+      PVZMobile_some_unused_sprites_9: -6445964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

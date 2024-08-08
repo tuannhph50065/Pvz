@@ -1,108 +1,95 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Peashooter : PlantBase
+// Khai báo lớp PeaShooter thừa kế từ PlantBase
+public class PeaShooter : PlantBase
 {
-    [Header("Bullet Settings")]
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private float shootingInterval = 2f;
-    [SerializeField] private Transform shootingPoint;
+    // Nhóm biến để lưu thông tin về Raycast
+    [Header("Raycast info")]
+    [SerializeField] private LayerMask whatIsMask; // Lớp mask để xác định đối tượng cần kiểm tra va chạm
+    [SerializeField] private float distanceLimit; // Giới hạn khoảng cách của Raycast
 
-    [Header("Raycast Info")]
-    [SerializeField] private float DetectionDistance;
-    [SerializeField] private LayerMask zombieLayer;
+    // Nhóm biến để lưu thông tin về bắn
+    [Header("Shoot info")]
+    [SerializeField] private GameObject bullet_prefabs; // Prefab của đạn
+    [SerializeField] private Transform pos_Shoot; // Vị trí bắn đạn
+    [SerializeField] private float fireRate; // Tốc độ bắn
+    private float canFire; // Thời gian có thể bắn tiếp
 
-    [Header("Audio Clips")]
-    [SerializeField] private AudioClip idleSound;
-    [SerializeField] private AudioClip shootSound;
+    // Nhóm biến để lưu âm thanh bắn
+    [Header("Audio info")]
+    public AudioClip shootSound; // Âm thanh khi bắn đạn
+    private AudioSource audioSource; // Nguồn âm thanh
 
-    private Animator animator;
-    private AudioSource audioSource;
-
-    void Start()
+    // Hàm khởi tạo ban đầu
+    protected override void Start()
     {
-        animator = GetComponent<Animator>();
+        base.Start(); // Gọi hàm Start của lớp cha
+        canFire = 0; // Khởi tạo thời gian bắn bằng 0
+        distanceLimit = Mathf.Abs(distanceLimit); // Đảm bảo giới hạn khoảng cách luôn dương
         audioSource = GetComponent<AudioSource>();
-        StartCoroutine(ShootBullets());
     }
 
-    private IEnumerator ShootBullets()
+    // Hàm cập nhật hàng khung hình
+    protected override void Update()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(shootingInterval);
-
-            if (DetectZombie(out Vector2 targetPosition))
-            {
-                ShootBullet(targetPosition);
-            }
-        }
+        base.Update(); // Gọi hàm Update của lớp cha
+        Attack(); // Gọi hàm Attack để kiểm tra và tấn công zombie
     }
 
-    private bool DetectZombie(out Vector2 targetPosition)
+    // Hàm để xử lý việc tấn công
+    private void Attack()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, DetectionDistance, zombieLayer);
-        if (hit.collider != null)
+        // Kiểm tra xem có zombie trong vùng tấn công không
+        if (ZombiesDetected().collider != null)
         {
-            targetPosition = hit.collider.transform.position;
-            return true;
+            Debug.Log(ZombiesDetected().collider.name);
+            animator.SetBool("check", true); // Đặt biến check của animator thành true nếu phát hiện zombie
         }
         else
         {
-            targetPosition = Vector2.zero;
-            return false;
+            animator.SetBool("check", false);
+
         }
     }
 
-    private void ShootBullet(Vector2 targetPosition)
+    // Hàm để bắn đạn
+    private void Shooting()
     {
-        if (bulletPrefab != null && shootingPoint != null)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
-            bullet bulletScript = bullet.GetComponent<bullet>();
-            if (bulletScript != null)
-            {
-                Vector2 direction = (targetPosition - (Vector2)shootingPoint.position).normalized;
-                bulletScript.SetDirection(direction);
-            }
-            else
-            {
-                Debug.LogWarning("Bullet script is missing on the bullet prefab.");
-            }
+        // Kiểm tra nếu chưa đủ thời gian để bắn tiếp thì thoát khỏi hàm
+        // if (!(canFire < Time.time)) return;
 
-            if (shootSound != null && audioSource != null)
-            {
-                audioSource.PlayOneShot(shootSound);
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource or shootSound is not assigned.");
-            }
-        }
-        else
+        // Tạo mới một viên đạn tại vị trí bắn
+        GameObject newBullet = Instantiate(bullet_prefabs, pos_Shoot.position, Quaternion.identity);
+        // Hủy viên đạn sau 4 giây
+        Destroy(newBullet, 4f);
+
+        // Cập nhật thời gian có thể bắn tiếp
+        // canFire = Time.time + fireRate;
+
+        if (shootSound != null && audioSource != null)
         {
-            Debug.LogWarning("Bullet prefab or shooting point not assigned.");
+            audioSource.PlayOneShot(shootSound);
+            Debug.Log("âm thanh bắn");
         }
+
+        else Debug.Log("không nhận âm thanh");
+
+        if (audioSource == null)
+        {
+
+            Debug.Log("audioSound Null");
+        }
+
     }
 
+    // Hàm để phát hiện zombie bằng Raycast
+    RaycastHit2D ZombiesDetected() => Physics2D.Raycast(transform.position, Vector2.right, distanceLimit, whatIsMask);
+
+    // Hàm để vẽ đường Raycast trong chế độ Gizmos 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + DetectionDistance, transform.position.y, 0));
-    }
-
-    // Hàm này sẽ được gọi bởi sự kiện animation
-    public void OnShootEvent()
-    {
-        Debug.Log("Shoot event triggered!");
-        // Gọi logic bắn đạn ở đây hoặc bất kỳ hành động nào bạn muốn thực hiện khi animation xảy ra
-        if (bulletPrefab != null && shootingPoint != null)
-        {
-            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
-            bullet bulletScript = bullet.GetComponent<bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.SetDirection(Vector2.right);
-            }
-        }
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + distanceLimit, transform.position.y, 0));
     }
 }

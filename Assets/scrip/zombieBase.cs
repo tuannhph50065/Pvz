@@ -6,69 +6,123 @@ public class ZombieBase : MonoBehaviour
 {
     [SerializeField] protected float health;
     [SerializeField] protected float speed;
-    protected Animator Animator; // Đổi tên trường này để tránh xung đột
-    protected SpriteRenderer spriteRenderer;
+    [SerializeField] protected float Atk;
+    protected Animator animator;
+    protected SpriteRenderer sr;
+
+    [SerializeField] protected AudioClip hitByBullet;
+    [SerializeField] protected AudioClip audioAtk;
+    protected AudioSource AudioSource;
+
     protected bool canMove = false;
     protected bool checkCollision = false;
 
-    protected void Start()
+    private PlantBase plantBase;
+    protected virtual void Start()
     {
-        Animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        AudioSource = GetComponent<AudioSource>();
+        plantBase = FindObjectOfType<PlantBase>(); // Tìm PlantBase trong toàn cảnh
 
-    protected void Update()
+        if (plantBase == null)
+        {
+            //Debug.Log("plantBase null");
+        }
+    }
+    protected virtual void Update()
     {
         if (canMove == true)
         {
-            Move(speed);
+            moving(speed);
+        }
+
+        if (health <= 0)
+        {
+            Death();
         }
     }
 
-    protected void StartMove()
+    protected virtual void Death()
+    {
+        GamePlay.instance.deadZombies++;
+        Destroy(gameObject);
+    }
+
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Plant"))
+        {
+            checkCollision = true;
+            stopMove();
+            Debug.Log("Đã dừng di chuyển");
+
+            // Cập nhật plantBase
+            plantBase = collision.gameObject.GetComponent<PlantBase>();
+            if (plantBase != null)
+            {
+                Debug.Log("PlantBase đã được gán thành công.");
+            }
+            else
+            {
+                Debug.LogError("Không thể gán PlantBase từ va chạm.");
+            }
+        }
+    }
+
+    protected void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Plant"))
+        {
+
+            // tạm dừng di chuyển khi gặp palnt
+            checkCollision = false;
+            startMove();
+            Debug.Log("tiếp tục di chuyển");
+        }
+    }
+
+    protected void Attack()
+    {
+        if (plantBase != null)
+        {
+            Debug.Log("Đang tấn công plantBase.");
+            plantBase.takeDame(Atk);
+            AudioSource.PlayOneShot(audioAtk);
+        }
+        else
+        {
+            Debug.LogError("PlantBase is null");
+        }
+    }
+
+    protected void startMove()
     {
         canMove = true;
     }
-
-    protected void StopMove()
+    protected void stopMove()
     {
         canMove = false;
     }
-
-    protected void Move(float x)
+    //
+    protected void moving(float x)
     {
         transform.Translate(Vector2.left * x * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+
+    public void takeDame(float dame)
     {
-        if (collision.CompareTag("Plant")) // Đảm bảo tag là "Plant"
-        {
-            checkCollision = true;
-            StopMove(); // Dừng chuyển động tạm thời khi va chạm với plant
-            Debug.Log("đã dừng");
-        }
-        else
-        {
-            checkCollision = false;
-            StartMove();
-            Debug.Log("di chuyển");
-        }
+        health -= dame;
+        StartCoroutine(flashFx());
     }
 
-    public void TakeDamage(float damage)
+    IEnumerator flashFx()
     {
-        health -= damage;
-        StartCoroutine(FlashFx());
-
-        if(health <= 0)
-            Destroy(gameObject);
-    }
-
-    private IEnumerator FlashFx()
-    {
-        spriteRenderer.color = new Color(0.5f, 0.5f, 0.5f);
+        sr.color = new Color(0.5f, 0.5f, 0.5f);
         yield return new WaitForSeconds(0.2f);
-        spriteRenderer.color = new Color(1f, 1f, 1f);
+        sr.color = new Color(1f, 1, 1);
+
     }
 }

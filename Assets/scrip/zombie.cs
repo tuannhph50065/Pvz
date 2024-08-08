@@ -1,42 +1,48 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : ZombieBase
+public class ZombieBasic : ZombieBase
 {
-    [SerializeField] private AudioClip hitByBullet;
-    [SerializeField] private float shootingInterval = 2f; // Đổi tên biến cho chính xác hơn
-    private AudioSource audioSource;
 
 
-    void Start()
+
+    // Start is called before the first frame update
+    protected override void Start()
     {
         base.Start();
-        audioSource = GetComponent<AudioSource>();
-        StartMove();
+        AudioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    // Update is called once per frame
+    protected override void Update()
     {
         base.Update();
-        if(health <= 0)
+        if (health <= 0)
         {
             GamePlay.instance.deadZombies++;
             Destroy(gameObject);
         }
-        
-        if(checkCollision == true)
+
+        if (checkCollision == true)
         {
-            Animator.SetBool("checkatk", true);
+
+            animator.SetBool("CheckAtk", true);
         }
         else
         {
-            Animator.SetBool("checkatk", false);
+            animator.SetBool("CheckAtk", false);
         }
     }
 
-    private void atk()
-    {
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+
+            AudioSource.PlayOneShot(hitByBullet);
+        }
     }
 
 }
