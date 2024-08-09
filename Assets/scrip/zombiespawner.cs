@@ -1,21 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSpawn : MonoBehaviour
+public class SpawnZombie : MonoBehaviour
 {
-    public Transform[] SpawnPoint;
-
-    public GameObject zombie;
-
-    private void Start()
+    [System.Serializable]
+    public class Notification
     {
-        InvokeRepeating("SpawnZombie", 2, 5);
+        public GameObject zombiePrefab; // Prefab của zombie
+        public string message;          // Nội dung thông báo
+        public int showTime;            // Thời gian để in ra thông báo (tính bằng giây)
+        public bool hasShown;           // Đã hiển thị hay chưa
     }
 
-    void SpawnZombie()
+    public List<Notification> notifications; // Danh sách các thông báo
+    public List<Transform> spawnPoints;      // Danh sách các điểm spawn cho zombie
+
+
+    void Update()
     {
-        int r = Random.Range(0,SpawnPoint.Length);
-        GameObject Myzombie = Instantiate(zombie, SpawnPoint[r].position, Quaternion.identity);  
+        // Cập nhật thời gian hiện tại của game, làm tròn xuống số nguyên gần nhất
+        int currentGameTime = Mathf.FloorToInt(GamePlay.GameTime);
+
+        // Kiểm tra từng thông báo
+        foreach (Notification notification in notifications)
+        {
+            if (!notification.hasShown && currentGameTime >= notification.showTime)
+            {
+                // In ra thông báo
+                //Debug.Log(notification.message);
+
+                // Chọn một điểm spawn ngẫu nhiên
+                int randomIndex = Random.Range(0, spawnPoints.Count);
+                Transform spawnPoint = spawnPoints[randomIndex];
+
+                // Tạo zombie tại điểm spawn ngẫu nhiên
+                Instantiate(notification.zombiePrefab, spawnPoint.position, Quaternion.identity);
+
+                // Đánh dấu thông báo đã được hiển thị
+                notification.hasShown = true;
+            }
+        }
     }
 }

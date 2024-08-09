@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SunFall : MonoBehaviour
+public class Sun : MonoBehaviour
 {
 
     public float stopPos { get; set; }
@@ -31,7 +31,7 @@ public class SunFall : MonoBehaviour
     {
         if (collision.CompareTag("target"))
         {
-            GamePlay.instance.sunScore += 50;
+            GamePlay.instance.sunScore += 25;
             animator.Play("SunMove");
             Destroy(gameObject, 1f);
         }
