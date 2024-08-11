@@ -1,5 +1,4 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 
 public class GamePlay : MonoBehaviour
@@ -16,6 +15,13 @@ public class GamePlay : MonoBehaviour
     public SpawnZombie SpawnZombiee;
     public int numberOfZombies;
     public int deadZombies;
+
+    private bool stopGame = false;
+
+
+    private AudioSource audioSource;
+
+    [SerializeField] EndGame endGame;
     public static float GameTime { get; private set; }
 
     // Phương thức Awake được gọi khi script này được khởi tạo
@@ -28,6 +34,10 @@ public class GamePlay : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.loop = true;
+        audioSource.Play();
+
         numberOfZombies = SpawnZombiee.notifications.Count;
     }
     // Phương thức Update được gọi một lần mỗi khung hình
@@ -48,10 +58,25 @@ public class GamePlay : MonoBehaviour
             }
         }
 
-        if (deadZombies == numberOfZombies)
+        if (numberOfZombies == deadZombies)
         {
+            Debug.Log("Win Game !!!");
 
-            Debug.Log("Win Game!");
+            endGame.winGame();
+
         }
     }
+    public void gamePaused()
+    {
+        stopGame = !stopGame;
+        if (stopGame)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
 }

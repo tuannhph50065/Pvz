@@ -31,7 +31,7 @@ public class Sun : MonoBehaviour
     {
         if (collision.CompareTag("target"))
         {
-            GamePlay.instance.sunScore += 25;
+            GamePlay.instance.sunScore += 50;
             animator.Play("SunMove");
             Destroy(gameObject, 1f);
         }

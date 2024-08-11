@@ -12,6 +12,7 @@ public class ImageHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public GameObject targetGameobj;  // Đối tượng cần ẩn/hiện khi click
     public GameObject targetGameobj_2; // Đối tượng thứ hai cần ẩn/hiện khi click
     public SceneAsset sceneToLoad;  // SceneAsset để kéo thả cảnh vào từ Editor
+    public bool isStopStart;
 
     void Start()
     {
@@ -72,5 +73,12 @@ public class ImageHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
             string sceneName = sceneToLoad.name; // Lấy tên cảnh từ SceneAsset
             SceneManager.LoadScene(sceneName);
         }
+
+        if (isStopStart)
+        {
+            GamePlay.instance.gamePaused();
+        }
     }
+
+
 }

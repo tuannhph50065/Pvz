@@ -25,10 +25,10 @@ public class PlantBase : MonoBehaviour
         }
     }
 
-    public void takeDame(float dame)
+    public void takeDame(float damage)
     {
-        Debug.Log($"PlantBase nhận {dame} sát thương.");
-        health -= dame;
+        Debug.Log($"PlantBase nhận {damage} sát thương.");
+        health -= damage;
         StartCoroutine(flashFx());
     }
 

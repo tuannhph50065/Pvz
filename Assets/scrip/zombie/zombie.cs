@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class ZombieBasic : ZombieBase
 {
+    [Header("Bến thể")]
+    public GameObject Shield;
+    private float healthMin;
+
+    public bool ZombieV1 = false;
+    public float heath_ZombieV1;
+
+    public bool ZombieV2 = false;
+    public float heath_ZombieV2;
+
+
 
 
 
@@ -12,17 +23,26 @@ public class ZombieBasic : ZombieBase
     {
         base.Start();
         AudioSource = GetComponent<AudioSource>();
+
+        healthMin = health;
+        if (ZombieV1)
+        {
+            health = heath_ZombieV1;
+        }
+        else if (ZombieV2)
+        {
+            health = heath_ZombieV2;
+        }
+
+
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        if (health <= 0)
-        {
-            GamePlay.instance.deadZombies++;
-            Destroy(gameObject);
-        }
+
+
 
         if (checkCollision == true)
         {
@@ -33,6 +53,12 @@ public class ZombieBasic : ZombieBase
         {
             animator.SetBool("CheckAtk", false);
         }
+
+        if (health <= healthMin && Shield != null)
+        {
+            Destroy(Shield);
+        }
+
     }
 
 

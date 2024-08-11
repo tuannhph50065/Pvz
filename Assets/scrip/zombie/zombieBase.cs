@@ -14,7 +14,7 @@ public class ZombieBase : MonoBehaviour
     [SerializeField] protected AudioClip audioAtk;
     protected AudioSource AudioSource;
 
-    protected bool canMove = false;
+    public bool canMove = false;
     protected bool checkCollision = false;
 
     private PlantBase plantBase;
@@ -24,7 +24,6 @@ public class ZombieBase : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         AudioSource = GetComponent<AudioSource>();
         plantBase = FindObjectOfType<PlantBase>(); // Tìm PlantBase trong toàn cảnh
-
         if (plantBase == null)
         {
             //Debug.Log("plantBase null");
@@ -46,7 +45,8 @@ public class ZombieBase : MonoBehaviour
     protected virtual void Death()
     {
         GamePlay.instance.deadZombies++;
-        Destroy(gameObject);
+        //animator.SetBool("CheckDeath", true);
+        Destroy(gameObject/*, 1.5f*/);
     }
 
     protected void OnCollisionEnter2D(Collision2D collision)
@@ -105,24 +105,25 @@ public class ZombieBase : MonoBehaviour
         canMove = false;
     }
     //
-    protected void moving(float x)
+    public void moving(float x)
     {
         transform.Translate(Vector2.left * x * Time.deltaTime);
     }
 
 
 
-    public void takeDame(float dame)
+    public void takeDame(float damage)
     {
-        health -= dame;
+        health -= damage;
         StartCoroutine(flashFx());
     }
 
     IEnumerator flashFx()
     {
+        Color original = sr.color;
         sr.color = new Color(0.5f, 0.5f, 0.5f);
         yield return new WaitForSeconds(0.2f);
-        sr.color = new Color(1f, 1, 1);
-
+        //sr.color = new Color(1f, 1, 1);
+        sr.color = original;
     }
 }
