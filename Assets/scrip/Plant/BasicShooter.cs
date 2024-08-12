@@ -15,7 +15,7 @@ public class PeaShooter : PlantBase
     [SerializeField] private GameObject bullet_prefabs; // Prefab của đạn
     [SerializeField] private Transform pos_Shoot; // Vị trí bắn đạn
     [SerializeField] private float fireRate; // Tốc độ bắn
-    private float canFire; // Thời gian có thể bắn tiếp
+    //private float canFire; // Thời gian có thể bắn tiếp
 
     // Nhóm biến để lưu âm thanh bắn
     [Header("Audio info")]
@@ -26,7 +26,7 @@ public class PeaShooter : PlantBase
     protected override void Start()
     {
         base.Start(); // Gọi hàm Start của lớp cha
-        canFire = 0; // Khởi tạo thời gian bắn bằng 0
+        //canFire = 0; // Khởi tạo thời gian bắn bằng 0
         distanceLimit = Mathf.Abs(distanceLimit); // Đảm bảo giới hạn khoảng cách luôn dương
         audioSource = GetComponent<AudioSource>();
     }

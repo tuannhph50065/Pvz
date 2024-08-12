@@ -322,7 +322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &205003659
 Transform:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ GameObject:
   - component: {fileID: 332318199}
   - component: {fileID: 332318201}
   m_Layer: 5
-  m_Name: Mode
+  m_Name: Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,8 +1293,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 121654474}
-  - {fileID: 253635714}
   - {fileID: 332318198}
+  - {fileID: 253635714}
   - {fileID: 555829072}
   m_Father: {fileID: 312016928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

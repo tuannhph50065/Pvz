@@ -22,7 +22,7 @@ public class GamePlay : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField] EndGame endGame;
-    public static float GameTime { get; private set; }
+    public static float GameTime { get; set; }
 
     // Phương thức Awake được gọi khi script này được khởi tạo
     private void Awake()
