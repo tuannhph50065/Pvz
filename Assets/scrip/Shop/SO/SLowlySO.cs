@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Slowly", menuName = "Shop/Slowly", order = 1)]
+[CreateAssetMenu(fileName = "PeaShoter", menuName = "Shop/PeaShooter", order = 1)]
 public class SlowlySO : SkillBaseSO
 {
     public int indexLevel;

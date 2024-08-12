@@ -9,6 +9,6 @@ public class SkillBaseSO : ScriptableObject
 public enum TypeSkill
 {
     Push_Water,
-    SLOWLY,
+    Bullet,
     MOWER
 }

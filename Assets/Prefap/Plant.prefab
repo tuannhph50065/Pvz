@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -190,7 +190,7 @@ MonoBehaviour:
   Plant_Object: {fileID: 3932166435075748965, guid: 465c23fb5f76b024c9a417eb121aa1d2, type: 3}
   Object_Card: {fileID: 2269091980239329125}
   CoolDownTimer: 0
-  CoolDown: 0.12
+  CoolDown: 15
   CoolDownText: {fileID: 7618098057923414348}
   price: 0
   TextPrice: {fileID: 0}
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fec01aa307fa61a44a1bc8708e1937ad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b0a8d84ec3c40147a7177f5a0ba33bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

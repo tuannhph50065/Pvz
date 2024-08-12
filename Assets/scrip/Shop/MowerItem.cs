@@ -40,7 +40,7 @@ public class MowerItem : MonoBehaviour
         levelTxt.text = $"{CountIndex + 1}";
         coolDownTxt.text = mower.infor[CountIndex].coolDown.ToString();
         pointTxt.text = mower.infor[CountIndex].reduceSpeed.ToString();
-        unlockCostTxt.text = mower.infor[CountIndex].UnlockCost.ToString();
+        //unlockCostTxt.text = mower.infor[CountIndex].UnlockCost.ToString();
     }
 
     void Upgrate()

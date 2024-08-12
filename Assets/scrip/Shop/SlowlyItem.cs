@@ -36,7 +36,7 @@ public class SlowlyItem : MonoBehaviour
         levelTxt.text = $"{slowlyLevel + 1}";
         coolDownTxt.text = Slowly.infor[slowlyLevel].coolDown.ToString();
         pointTxt.text = Slowly.infor[slowlyLevel].TimeStopMove.ToString();
-        unlockCostTxt.text = Slowly.infor[slowlyLevel].UnlockCost.ToString();
+        //unlockCostTxt.text = Slowly.infor[slowlyLevel].UnlockCost.ToString();
     }
 
     void Upgrate()
