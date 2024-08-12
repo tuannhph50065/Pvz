@@ -8,10 +8,14 @@ public class EndGame : MonoBehaviour
     public GameObject MenuLose;
     public GameObject MenuWin;
     public GameObject OffActive;
+    public bool isPush;
+
+
 
     void Start()
     {
-        OffActive.SetActive(false);
+
+        isPush = false;
     }
 
     // Update is called once per frame
@@ -26,6 +30,7 @@ public class EndGame : MonoBehaviour
             Time.timeScale = 0f;
             if (MenuLose != null)
             {
+                OffActive.SetActive(false);
                 MenuLose.SetActive(true);
             }
             else Debug.Log("Menu Lose Null");
@@ -34,14 +39,24 @@ public class EndGame : MonoBehaviour
 
     public void winGame()
     {
-        if (MenuWin != null)
+        if (MenuWin != null && !isPush)
         {
+            OffActive.SetActive(false);
             Time.timeScale = 0f;
-            StartCoroutine(InserScore());
             MenuWin.SetActive(true);
+
+            GetScore();
+            Debug.Log("Insert Finish");
+            isPush = false;
         }
         else Debug.Log("Menu Win Null");
 
+    }
+
+
+    void GetScore()
+    {
+        StartCoroutine(InserScore());
     }
 
     IEnumerator InserScore()

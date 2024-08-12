@@ -1,45 +1,25 @@
 ﻿using UnityEngine;
 
-public class SunflowerController : MonoBehaviour
+public class SunFlower : PlantBase
 {
-    public GameObject sunPrefab; // Prefab của mặt trời
-    public float spawnInterval = 10f; // Thời gian giữa các lần tạo mặt trời
-    public Transform sunSpawnPoint; // Điểm xuất phát của mặt trời (chân của Sunflower)
+    [SerializeField] private GameObject sun_Prefab;
+    [SerializeField] private Transform posStop;
 
-    private float timer = 0f;
-
-    void Start()
+    protected override void Start()
     {
-        if (sunPrefab == null || sunSpawnPoint == null)
-        {
-            Debug.LogError("SunPrefab or SunSpawnPoint is not assigned in the inspector.");
-        }
+        base.Start();
+        InvokeRepeating("spanwSun", 3, 4); // Hàm gọi methodName sau thời gian và sau đó sẽ lặp lại theo giây
     }
 
-    void Update()
+    protected override void Update()
     {
-        timer += Time.deltaTime; // Cập nhật timer
-
-        if (timer >= spawnInterval)
-        {
-            SpawnSun();
-            timer = 0f; // Reset timer
-        }
+        base.Update();
+    }
+    void spanwSun()
+    {
+        GameObject sun = Instantiate(sun_Prefab, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0, 0.5f)), Quaternion.identity);
+        sun.GetComponent<Sun>().stopPos = posStop.position.y;
     }
 
-    void SpawnSun()
-    {
-        if (sunPrefab != null && sunSpawnPoint != null)
-        {
-            // Tạo một đối tượng mặt trời mới tại điểm xuất phát
-            GameObject sun = Instantiate(sunPrefab, sunSpawnPoint.position, Quaternion.identity);
 
-            // Nếu cần, bạn có thể điều chỉnh thêm để đảm bảo mặt trời không di chuyển
-            Rigidbody2D rb = sun.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = Vector2.zero; // Dừng chuyển động của mặt trời nếu có Rigidbody2D
-            }
-        }
-    }
 }

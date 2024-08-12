@@ -378,8 +378,8 @@ MonoBehaviour:
   health: 100
   speed: 1
   Atk: 1
-  hitByBullet: {fileID: 0}
-  audioAtk: {fileID: 0}
+  hitByBullet: {fileID: 8300000, guid: 16cbdf9e974cac14495ca8c6ad297471, type: 3}
+  audioAtk: {fileID: 8300000, guid: 004a197cfadb88c4ab7f6984a018e811, type: 3}
   canMove: 1
   Shield: {fileID: 0}
   ZombieV1: 0
